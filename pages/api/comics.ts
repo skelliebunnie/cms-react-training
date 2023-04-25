@@ -1,6 +1,18 @@
-export default function handler(req, res) {
-	res.status(200).json(
-		[
+import type { NextApiRequest, NextApiResponse } from 'next'
+
+type Data = {
+  id: number,
+  title: string,
+  issueNumber: number,
+  publishDate: string,
+  creators: {
+  	resourceURI: string,
+  	name: string,
+  	role: string
+  }
+}
+
+const data = [
 	    {
 	        "id": 100213,
 	        "title": "Hulk Vs. Thor: Banner Of War  (Trade Paperback)",
@@ -506,6 +518,11 @@ export default function handler(req, res) {
 	        ],
 	        "thumbnail": "http://i.annihil.us/u/prod/marvel/i/mg/c/c0/6287bd87eafb1.jpg"
 	    }
-		]
-	)
+		];
+
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) {
+  res.status(200).json(data)
 }
