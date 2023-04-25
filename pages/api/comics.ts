@@ -9,7 +9,8 @@ type Data = {
   	resourceURI: string,
   	name: string,
   	role: string
-  }
+  },
+  thumbnail: string
 }
 
 const data = [
