@@ -12,14 +12,14 @@ type ComicProps = {
 	image: string,
 	comic: {
 		id: number,
-	  title: string,
-	  issueNumber: number,
-	  publishDate: string,
-	  creators: {
-	  	resourceURI: string,
-	  	name: string,
-	  	role: string
-	  }
+		title: string,
+		issueNumber: number,
+		publishDate: string,
+		creators: {
+			resourceURI: string,
+			name: string,
+			role: string
+		}
 	}
 }
 

@@ -1,8 +1,8 @@
 import Head from "next/head"
-import styles from "@/styles/Home.module.css"
+import Header from "@/components/Header.tsx"
 import Comic from "@/components/Comic.tsx"
 
-import useFetch from "@/hooks/useFetch.js"
+import useFetch from "@/hooks/useFetch.ts"
 
 const publicKey = "3c0480132cc51668430a83132205a545";
 const apiURL = `http://gateway.marvel.com/v1/public/comics?apikey=${publicKey}`;
@@ -15,10 +15,11 @@ export default function Index() {
 	let apiData = [data];
 	let attribution = "Data copyright Marvel";
 	let comics = [];
+	console.log(apiData);
 	
-	if(apiData[0][0]) {
-		attribution = apiData[0][0].attributionText;
-		comics = apiData[0][0].data.results.map(comic => { return {id: comic.id, title: comic.title, issueNumber: comic.issueNumber, publishDate: comic.publishDate, creators: comic.creators.items, thumbnail: `${comic.thumbnail.path}.${comic.thumbnail.extension}`}});
+	if(apiData && apiData[0]) {
+		attribution = apiData[0].attributionText;
+		comics = apiData[0].data.results.map(comic => { return {id: comic.id, title: comic.title, issueNumber: comic.issueNumber, publishDate: comic.publishDate, creators: comic.creators.items, thumbnail: `${comic.thumbnail.path}.${comic.thumbnail.extension}`}});
 	}
 	console.log(comics);
 	
@@ -27,10 +28,8 @@ export default function Index() {
 			<Head>
 				<title>Comics</title>
 			</Head>
+			<Header title="Comic Closet" />
 			<main style={{maxWidth: "80%", margin: "2rem auto 0"}}>
-				<article>
-				<h1 style={{margin: "1rem auto", textAlign: "center"}}>EXERCISE 1: COMIC GRID</h1>
-				</article>
 				<article style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gridGap: "2rem"}}>
 					{comics.map((comic) => (
 						<Comic key={comic.id} comic={comic} />
