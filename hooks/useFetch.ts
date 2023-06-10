@@ -13,6 +13,7 @@ type apiResponse = {
     },
     thumbnail: string
   },
+  attributionText: string,
   loading: Boolean,
   error: any
 }

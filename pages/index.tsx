@@ -4,8 +4,9 @@ import Comic from "@/components/Comic.tsx"
 
 import useFetch from "@/hooks/useFetch.ts"
 
-const publicKey = "3c0480132cc51668430a83132205a545";
-const apiURL = `http://gateway.marvel.com/v1/public/comics?apikey=${publicKey}`;
+const publicKey = `${process.env.apiKeyPublic}`;
+let limit = 15;
+const apiURL = `http://gateway.marvel.com/v1/public/comics?apikey=${publicKey}&limit=${limit}`;
 
 export default function Index() {
 	const {data, loading, error} = useFetch(apiURL);
