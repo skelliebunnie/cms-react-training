@@ -1,0 +1,40 @@
+.introCont {
+	position: relative;
+	max-width: 90%;
+	margin: 0 auto;
+	padding-top: 0.5rem;
+	line-height: 1.5;
+}
+
+.introBadge {
+	display: inline-block;
+	padding: 0.45rem 0.75rem;
+	background-color: #9ECFC5;
+	color: white;
+	font-weight: bold;
+	text-shadow: 2px 2px 0 black;
+	position: absolute;
+	top: -1.2rem;
+	left: -1rem;
+	transform: rotate(-4deg);
+	z-index: 0;
+}
+
+.introTitle {
+	position: relative;
+	color: #C24868;
+	font-weight: bold;
+	padding-bottom: 1rem;
+	z-index: 1;
+}
+
+@media (min-width: 768px) {
+	.introCont {
+		max-width: 30%;
+	}
+	
+	.introBadge {
+		top: -0.65rem;
+		left: -2.5rem;
+	}
+}

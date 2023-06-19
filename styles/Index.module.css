@@ -1,0 +1,13 @@
+.pageMain {
+	max-width: 90%;
+	margin: 2rem auto 0;
+	gap: 5%;
+	align-items: flex-start;
+	justify-content: space-between;
+}
+
+@media (min-width: 1024px) {
+	.pageMain {
+		display: flex;
+	}
+}

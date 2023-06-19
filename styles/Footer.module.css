@@ -1,0 +1,31 @@
+.footer {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: #222222;
+	padding: 2rem;
+	color: white;
+}
+
+.footerLogo {
+	margin-bottom: 1rem;
+}
+
+.footerNav {
+	list-style-type: none;
+	display: flex;
+	margin-bottom: 1rem;
+}
+
+.footerLink {
+	color: white;
+	text-decoration: underline;
+	margin: 0.25rem 0.5rem;
+}
+
+.footerLink + .footerLink {
+	border-left: 1px solid white;
+	padding-left: 0.75rem;
+}

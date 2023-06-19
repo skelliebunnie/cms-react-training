@@ -1,0 +1,60 @@
+.listViewContainer {
+	flex: 1;
+	width: 100%;
+	text-align: center;
+}
+
+.comicItem {
+	display: flex;
+	margin-bottom: 1rem;
+	flex-flow: row-reverse nowrap;
+	position: relative;
+	justify-content: space-between;
+	gap: 2rem;
+}
+
+.comicItem > div {
+	position: relative;
+}
+
+.comicImage {
+	margin: 0 auto;
+	box-shadow: var(--image-shadow);
+	position: relative;
+	flex: 1 1 auto;
+	width: 35%;
+}
+
+.comicDetail {
+	text-align: left;
+}
+
+@media (min-width: 768px) {
+	.listView {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: 1rem;
+		flex: 1;
+	}
+	
+	.comicItem {
+		flex-flow: column nowrap;
+	}
+	
+	.comicImage {
+		width: auto;
+		max-width: 183px;
+	}
+	
+	.comicDetail {
+		text-align: center;
+	}
+}
+
+@media (min-width: 1280px) {
+	.listView { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (min-width: 1400px) {
+	.listView { grid-template-columns: repeat(5, 1fr); }
+}

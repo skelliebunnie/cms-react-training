@@ -1,44 +1,31 @@
 import Head from "next/head"
-import Header from "@/components/Header.tsx"
-import Comic from "@/components/Comic.tsx"
+import Hero from "@/components/Hero/Hero"
+import Intro from "@/components/Intro/Intro"
+import ComicsListView from "@/components/ComicsListView/ComicsListView"
+import FavoritesList from "@/components/FavoritesList/FavoritesList"
+import Footer from "@/components/Footer/Footer"
 
-import useFetch from "@/hooks/useFetch.ts"
+import AppContextProvider  from "../contexts/AppContext";
 
-const publicKey = "3c0480132cc51668430a83132205a545";
-const apiURL = `http://gateway.marvel.com/v1/public/comics?apikey=${publicKey}`;
+import styles from "@/styles/Index.module.css"
 
 export default function Index() {
-	const {data, loading, error} = useFetch(apiURL);
-	if(loading) return "Loading...";
-	if(error) return "Error loading";
-	
-	let apiData = [data];
-	let attribution = "Data copyright Marvel";
-	let comics = [];
-	console.log(apiData);
-	
-	if(apiData && apiData[0]) {
-		attribution = apiData[0].attributionText;
-		comics = apiData[0].data.results.map(comic => { return {id: comic.id, title: comic.title, issueNumber: comic.issueNumber, publishDate: comic.publishDate, creators: comic.creators.items, thumbnail: `${comic.thumbnail.path}.${comic.thumbnail.extension}`}});
-	}
-	console.log(comics);
+	const IntroText = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse eum excepturi accusamus incidunt magni cum, alias iusto veritatis beatae consequuntur corrupti molestiae quidem earum dolorum quibusdam vero sequi laboriosam! Magnam.";
 	
 	return (
-		<>
+		<div>
 			<Head>
 				<title>Comics</title>
 			</Head>
-			<Header title="Comic Closet" />
-			<main style={{maxWidth: "80%", margin: "2rem auto 0"}}>
-				<article style={{display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))", gridGap: "2rem"}}>
-					{comics.map((comic) => (
-						<Comic key={comic.id} comic={comic} />
-					))}
-				</article>
-			</main>
-			<footer style={{textAlign: "center", padding: "1rem", fontSize: "small", backgroundColor: "#a3a3a3"}}>
-				<p>{attribution}</p>
-			</footer>
-		</>
+			<AppContextProvider>
+				<Hero title="Comic Closet" />
+				<Intro badgeText="New Comics!" titleText="Coming Out Daily" textContent={IntroText} />
+				<main className={styles.pageMain}>
+					<ComicsListView />
+					<FavoritesList />
+				</main>
+				<Footer />
+			</AppContextProvider>
+		</div>
 	)
 }

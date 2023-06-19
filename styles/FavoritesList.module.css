@@ -1,0 +1,48 @@
+.favoritesListContainer {
+	position: relative;
+	background-color: #222222;
+	color: white;
+	padding: 1rem 2rem;
+	flex: 1 0 auto;
+	max-width: 20%;
+}
+
+.favoritesList {
+	list-style-type: none;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.favoriteItem {
+	position: relative;
+	padding-top: 1rem;
+} 
+
+.favoriteItem > div {
+	display: flex;
+	gap: 1rem;
+}
+
+.removeFavorite {
+	position: absolute;
+	top: 0.5rem;
+	left: -0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: white;
+	color: #C24868;
+	border: 1px solid #222222;
+	border-radius: 50%;
+	width: 1.25rem;
+	height: 1.25rem;
+	padding: 0;
+	font-size: 0.8rem;
+	line-height: 1;
+}
+
+.favoriteDetails {
+	display: flex;
+	flex-direction: column;
+}

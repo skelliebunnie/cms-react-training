@@ -1,0 +1,15 @@
+.filterIndex {
+	background-color: #222222;
+	color: white;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	display: flex;
+	gap: 1rem;
+}
+
+.filterInput {
+	padding: 0.25rem;
+	border-radius: 4px;
+	flex: 1;
+	max-width: 30ch;
+}

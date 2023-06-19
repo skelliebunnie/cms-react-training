@@ -1,0 +1,36 @@
+.favoritesButton {
+	border-radius: 50%;
+	width: 2.35rem;
+	height: 2.35rem;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	background-color: black;
+	top: 50%;
+	transform: translateY(-50%);
+	left: -1rem;
+}
+
+@media (min-width: 768px) {
+	.favoritesButton {
+		position: relative;
+		top: -1.5rem;
+		transform: translateY(0);
+		left: 0;
+	}
+}
+
+.active {
+	border: 2px solid white;
+	background-color: #C24868E6;
+}
+
+.favoritesIcon {
+	font-size: 1rem;
+	line-height: 1rem;
+	margin: 0 auto;
+	text-align: center;
+	color: white;
+}
