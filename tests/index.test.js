@@ -53,4 +53,10 @@ describe("<Comic />", () => {
 		expect(publishDate.textContent).toBe(`${comicPublishDate}`);
 		expect(creators.textContent).toBe(`${comicCreators}`);
 	});
+	
+	it("should NOT render the comic component if no data is passed", () => {
+		const {debug, queryByTestId} = render(<Comic />);
+		const result = queryByTestId("comic");
+		expect(result).not.toBeInTheDocument();
+	})
   });
